@@ -309,83 +309,140 @@ The repository contains visualizations covering:
 
 ---
 
+
 # Repository Structure
 
-```text
-cancer-biomarker-discovery/
-│
-├── README.md
-├── environment.yml
-├── .gitignore
-│
-├── data/
-│   ├── raw/
-│   └── processed/
-│
-├── notebooks/
-│   ├── 01_dataset_reconnaissance.ipynb
-│   └── 02_quality_control_and_eda.ipynb
-│
-├── src/
-│
-├── results/
-│   ├── figures/
-│   └── tables/
-│
-└── docs/
-    └── dataset.md
+    cancer-biomarker-discovery/
+    ├── README.md
+    ├── environment.yml
+    ├── .gitignore
+    │
+    ├── data/
+    │   ├── raw/
+    │   └── processed/
+    │
+    ├── notebooks/
+    │   ├── 01_dataset_reconnaissance.ipynb
+    │   └── 02_quality_control_and_eda.ipynb
+    │
+    ├── src/
+    │
+    ├── results/
+    │   ├── figures/
+    │   └── tables/
+    │
+    └── docs/
+        └── dataset.md
 
 Raw and processed datasets are excluded from Git version control because of their size.
 
-Reproducibility
+---
 
-The computational environment is documented in:
+# Reproducibility
 
-environment.yml
+The computational environment is documented in `environment.yml`.
 
 Main tools used:
 
-Python
-pandas
-NumPy
-SciPy
-Matplotlib
-scikit-learn
-GSEApy
-Jupyter
-Limitations
+- Python
+- pandas
+- NumPy
+- SciPy
+- Matplotlib
+- scikit-learn
+- GSEApy
+- Jupyter
+
+---
+
+# Key Results
+
+| Analysis | Result |
+|---|---:|
+| Discovery samples | 166 |
+| Matched tumor–normal pairs | 83 |
+| Significant DE genes | 3,762 |
+| Upregulated genes | 1,807 |
+| Downregulated genes | 1,955 |
+| External validation samples | 110 |
+| Candidates mapped to validation cohort | 12 |
+| Best individual biomarker | ITLN2 |
+| ITLN2 external validation AUC | 0.9904 |
+| Multi-gene panel external validation AUC | 0.9971 |
+
+---
+
+# Results Figures
+
+The main generated figures are available in `results/figures/`.
+
+### Differential Expression
+
+`results/figures/volcano_plot.png`
+
+### Pathway Enrichment
+
+`results/figures/GO_upregulated_dotplot.png`
+
+`results/figures/GO_downregulated_dotplot.png`
+
+### External Validation
+
+`results/figures/external_validation_ROC_curves.png`
+
+`results/figures/external_validation_panel_ROC.png`
+
+### Biomarker Comparison
+
+`results/figures/final_biomarker_AUC_comparison.png`
+
+`results/figures/discovery_effect_vs_validation_AUC.png`
+
+### Machine Learning
+
+`results/figures/ML_group_aware_ROC.png`
+
+`results/figures/ML_confusion_matrix.png`
+
+---
+
+# Limitations
 
 This project represents computational biomarker discovery and external validation rather than clinical diagnostic validation.
 
 Important limitations include:
 
-The study focuses on LUAD rather than all NSCLC subtypes.
-The datasets are microarray-based rather than RNA-seq.
-Discovery and validation cohorts were generated on different microarray platforms.
-The external cohort has differences in smoking-status composition.
-The validation cohort contains 80 tumors and 30 normal samples.
-Cross-platform gene mapping may introduce technical differences.
-Machine-learning evaluation uses a pre-specified biomarker panel selected from the discovery analysis rather than performing feature selection independently inside every cross-validation fold.
-Experimental validation and larger clinical cohorts would be required before clinical translation.
+- The study focuses on LUAD rather than all NSCLC subtypes.
+- The datasets are microarray-based rather than RNA-seq.
+- Discovery and validation cohorts were generated using different microarray platforms.
+- The external validation cohort has differences in smoking-status composition.
+- The validation cohort contains 80 tumors and 30 normal samples.
+- Cross-platform gene mapping may introduce technical differences.
+- Machine-learning evaluation uses a pre-specified biomarker panel selected from the discovery analysis rather than performing feature selection independently inside every cross-validation fold.
+- Experimental validation and larger clinical cohorts would be required before clinical translation.
 
-Therefore, the reported ROC-AUC values should be interpreted as computational cohort-level discrimination rather than clinical diagnostic performance.
+Therefore, ROC-AUC values should be interpreted as **computational cohort-level discrimination**, not as proof of clinical diagnostic utility.
 
-Conclusion
+---
+
+# Conclusion
 
 This project demonstrates an end-to-end computational workflow for transcriptomic biomarker discovery in lung adenocarcinoma.
 
 The workflow integrates:
 
-paired differential expression → biological pathway interpretation → candidate biomarker selection → external cross-platform validation → ROC/AUC analysis → machine-learning evaluation
+**paired differential expression → biological pathway interpretation → candidate biomarker selection → external cross-platform validation → ROC/AUC analysis → machine-learning evaluation**
 
-The identified candidate biomarkers, particularly ITLN2, showed strong discriminatory performance in an external cohort, while the multi-gene panel achieved an external validation ROC-AUC of 0.9971.
+The identified candidate biomarkers, particularly **ITLN2**, showed strong discriminatory performance in an external cohort, while the multi-gene panel achieved an external validation ROC-AUC of **0.9971**.
 
 The project provides a reproducible computational framework for identifying and prioritizing transcriptomic biomarkers for further biological investigation.
 
-Author
+---
 
-Rajat
+# Author
+
+**Rajat**
 
 B.Tech Biotechnology — Computational Biology
 
-GitHub: rajat344
+GitHub: `rajat344`
