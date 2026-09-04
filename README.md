@@ -210,104 +210,62 @@ This provides a patient-aware assessment of classification performance.
 
 ---
 
-# Results
+# Results Figures
 
-## Differential Expression
+The main generated figures are available in `results/figures/`.
 
-The discovery analysis identified:
+## Pathway Enrichment
 
-- **3,762 significantly differentially expressed genes**
-- **1,807 upregulated genes**
-- **1,955 downregulated genes**
+### Upregulated Genes
 
-using FDR < 0.05 and |log2FC| ≥ 1.
+![GO enrichment of upregulated genes](results/figures/GO_upregulated_dotplot.png)
 
-The strongest expression changes included genes associated with lung tissue identity, tumor biology, extracellular processes, and cell-cycle activity.
+### Downregulated Genes
 
----
+![GO enrichment of downregulated genes](results/figures/GO_downregulated_dotplot.png)
 
-## Pathway Analysis
-
-The upregulated gene set was strongly enriched for cell-cycle and mitotic processes, including mitotic spindle organization and nuclear division.
-
-The downregulated gene set showed enrichment for immune and inflammatory processes, including cytokine signaling, phagocytosis, and inflammatory response.
-
-These results provide biological context for the molecular differences between LUAD and non-malignant lung tissue.
+The enriched biological processes highlight strong cell-cycle and mitotic activity among upregulated genes and immune/inflammatory processes among downregulated genes.
 
 ---
 
-## External Biomarker Validation
+## External Validation
 
-The discovery candidates were tested in the independent GSE43458 cohort.
+### Individual Biomarker ROC Curves
 
-### Best individual candidate
+![External validation ROC curves](results/figures/external_validation_ROC_curves.png)
 
-**ITLN2**
+### Multi-Gene Biomarker Panel
 
-External validation:
+![External validation biomarker panel](results/figures/external_validation_panel_ROC.png)
 
-**ROC-AUC = 0.9904**
-
-### Multi-gene panel
-
-The direction-aware multi-gene biomarker panel achieved:
-
-**ROC-AUC = 0.9971**
-
-in the external validation cohort.
-
-These results indicate strong computational discrimination between LUAD tumor and normal lung tissue in the external dataset.
+The strongest individual candidate, ITLN2, achieved an external validation AUC of 0.9904, while the multi-gene panel achieved an AUC of 0.9971.
 
 ---
 
-## Machine-Learning Validation
+## Biomarker Performance
 
-A logistic regression classifier was evaluated using group-aware cross-validation on the discovery cohort.
+### Candidate AUC Comparison
 
-Results are available in:
+![Biomarker AUC comparison](results/figures/final_biomarker_AUC_comparison.png)
 
-`results/tables/ML_group_aware_performance.csv`
+### Discovery Effect Size vs Validation AUC
 
-Visualizations:
-
-`results/figures/ML_group_aware_ROC.png`
-
-`results/figures/ML_confusion_matrix.png`
+![Discovery effect size versus validation AUC](results/figures/discovery_effect_vs_validation_AUC.png)
 
 ---
 
-# Key Figures
+## Machine Learning
 
-The repository contains visualizations covering:
+### Group-Aware ROC Curve
 
-### Exploratory Analysis
+![Machine learning ROC curve](results/figures/ML_group_aware_ROC.png)
 
-- Sample expression distributions
-- PCA
+### Confusion Matrix
 
-### Differential Expression
-
-- Volcano plot
-
-### Biological Interpretation
-
-- GO Biological Process enrichment
-- Upregulated gene enrichment
-- Downregulated gene enrichment
-
-### Biomarker Validation
-
-- Individual candidate ROC curves
-- Multi-gene panel ROC curve
-- Biomarker AUC comparison
-- Discovery effect size vs validation AUC
-
-### Machine Learning
-
-- Group-aware ROC curve
-- Confusion matrix
+![Machine learning confusion matrix](results/figures/ML_confusion_matrix.png)
 
 ---
+
 
 
 # Repository Structure
