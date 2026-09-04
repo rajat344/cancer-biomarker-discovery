@@ -1,0 +1,9 @@
+metric,value
+Locked candidates,15
+Candidates mapped to GSE43458,12
+Validation samples,110
+Validation tumors,80
+Validation normals,30
+Best biomarker,ITLN2
+Best biomarker AUC,0.9904166666666666
+Multi-gene panel AUC,0.9970833333333333
